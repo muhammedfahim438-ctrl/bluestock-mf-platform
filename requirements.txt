@@ -1,0 +1,35 @@
+# ============================================================
+# Bluestock Fintech — Mutual Fund Analytics Platform
+# Requirements File
+# Python 3.10+
+# Generated: 2026-06-03
+# ============================================================
+
+# --- Core Data Processing ---
+pandas>=2.0.0
+numpy>=1.24.0
+scipy>=1.11.0
+
+# --- Visualization ---
+matplotlib>=3.7.0
+seaborn>=0.12.0
+plotly>=5.15.0
+
+# --- Database ---
+sqlalchemy>=2.0.0
+
+# --- HTTP / API Fetching ---
+requests>=2.31.0
+
+# --- Jupyter Environment ---
+jupyter>=1.0.0
+jupyterlab>=4.0.0
+ipykernel>=6.25.0
+
+# --- Utilities ---
+python-dateutil>=2.8.2
+tqdm>=4.65.0
+
+# ============================================================
+# Install:  pip install -r requirements.txt
+# ============================================================
