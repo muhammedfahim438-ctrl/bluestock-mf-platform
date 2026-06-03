@@ -1,0 +1,22 @@
+{
+  "fetch_timestamp": "2026-06-03T14:19:53.858343",
+  "api_base": "https://api.mfapi.in/mf",
+  "schemes_fetched": [
+    125497,
+    119551,
+    120503,
+    118632,
+    119092,
+    120841
+  ],
+  "task4_code": 125497,
+  "task5_codes": [
+    119551,
+    120503,
+    118632,
+    119092,
+    120841
+  ],
+  "raw_dir": "D:\\bluestock_mf_platform\\data\\raw",
+  "processed_dir": "D:\\bluestock_mf_platform\\data\\processed"
+}

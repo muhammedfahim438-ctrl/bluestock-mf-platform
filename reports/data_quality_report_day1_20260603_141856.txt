@@ -1,0 +1,67 @@
+======================================================================
+  BLUESTOCK FINTECH — MUTUAL FUND ANALYTICS PLATFORM
+  DATA QUALITY REPORT  |  DAY 1: INGESTION
+  Generated : 2026-06-03 14:18:56
+======================================================================
+
+## DATASET SUMMARY
+
+  File                                              Rows   Cols  Anomalies
+  --------------------------------------------------------------------
+  01_fund_master.csv                                  40     15  ✓ 0 issue(s)
+  02_nav_history.csv                              46,000      3  ✓ 0 issue(s)
+  03_aum_by_fund_house.csv                            90      5  ✓ 0 issue(s)
+  04_monthly_sip_inflows.csv                          48      6  ⚠️  1 issue(s)
+  05_category_inflows.csv                            144      3  ✓ 0 issue(s)
+  06_industry_folio_count.csv                         21      6  ✓ 0 issue(s)
+  07_scheme_performance.csv                           40     19  ✓ 0 issue(s)
+  08_investor_transactions.csv                    32,778     13  ✓ 0 issue(s)
+  09_portfolio_holdings.csv                          322      8  ✓ 0 issue(s)
+  10_benchmark_indices.csv                         8,050      3  ✓ 0 issue(s)
+
+  Total rows ingested: 87,533
+
+## ANOMALIES DETECTED
+
+  04_monthly_sip_inflows.csv:
+    ⚠️  NULL — yoy_growth_pct: 12 rows (25.0%)
+  📋 Note: yoy_growth_pct: first 12 months intentionally NULL
+
+## KNOWN ACCEPTABLE NULL FIELDS
+
+  04_monthly_sip_inflows.csv | yoy_growth_pct | first 12 months
+  REASON: YoY requires a prior-year baseline; 2022 has none.
+  ACTION: Keep as NaN — do NOT ffill or impute.
+
+## AMFI CODE REFERENTIAL INTEGRITY
+
+  02_nav_history.csv:
+    Status  : PASS
+    Valid   : 40/40
+  07_scheme_performance.csv:
+    Status  : PASS
+    Valid   : 40/40
+  08_investor_transactions.csv:
+    Status  : PASS
+    Valid   : 40/40
+  09_portfolio_holdings.csv:
+    Status  : PASS
+    Valid   : 34/34
+
+## CATEGORY NAMING INCONSISTENCY
+
+  05_category_inflows.csv uses 'Value/Contra'
+  01_fund_master.csv uses 'Value'
+  ACTION: Normalize to 'Value' during ETL load into SQLite.
+
+## ENGINEERING CONSTRAINTS VERIFIED
+
+  [✓] Paths use pathlib.Path — no hardcoded strings
+  [✓] Date columns parsed via parse_dates= at load time
+  [✓] NAV ffill strategy documented (apply Day 2 schema load)
+  [✓] 252 trading days annualization noted for metrics (Day 4)
+  [✓] Rf = 6.5% proxy for Sharpe calculation (Day 4)
+
+======================================================================
+  END OF REPORT
+======================================================================
